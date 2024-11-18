@@ -13,6 +13,49 @@ The **Movie Db App** allows users to explore movies, add them to their favorites
 Ensure you have the following software installed:
 - **Node.js** (v14 or above)
 - **npm** or **yarn** (for managing dependencies)
+- 
+- Getting Started
+
+Follow the steps below to set up and run the application locally.
+Prerequisites
+
+Before you begin, ensure you have the following installed:
+
+    Node.js (version 16 or higher recommended)
+    npm (comes with Node.js)
+
+Installation
+
+    Clone the repository:
+
+git clone https://github.com/Iwumezie-pamela/movie-db-task.git
+
+
+Install dependencies:
+
+    npm install
+
+Running the Application
+
+To start the development server:
+
+npm run dev
+
+Access the app in your browser at:
+
+http://localhost:3000
+
+
+Building for Production
+
+To create an optimized production build:
+
+npm run build
+npm run dev
+
+The app will be available at:
+
+http://localhost:3000
 
 Features
 
@@ -40,3 +83,4 @@ Design Decisions
     * Responsiveness: The app’s layout adapts for mobile, tablet, and desktop devices. It features a grid layout that adjusts depending on the screen size. On smaller screens, the grid displays fewer columns, while larger screens show more items per row.
 
     * Error Handling: Basic error handling is implemented for API calls. If a movie's data fails to load, the app gracefully handles the error without crashing and provides fallback UI.
+    
