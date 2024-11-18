@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import React from 'react';
+import { FaHeart } from 'react-icons/fa';
 
 
 const Navbar = () => {
@@ -16,10 +17,11 @@ const Navbar = () => {
       <div className='ml-2 text-white '>
         
           <Link
-            href='/favorite'
-            className=' bg-red-600  py-1 px-1 sm:py-2 sm:px-6 rounded cursor-pointer'
+            href='/favorites'
+            className='flex items-center gap-1 text-red-600 py-1 px-1 sm:py-2 sm:px-6 rounded cursor-pointer'
           >
-         Favorite
+            <span> <FaHeart className=' text-gray-300' /></span>
+         Favorites
           </Link>
         </div>
     </section>

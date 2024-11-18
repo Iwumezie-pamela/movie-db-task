@@ -84,7 +84,7 @@ function HomePage({ initialMovies }: { initialMovies: MovieResponse[] }) {
 
         {!isLoading && search && filteredMovies.length === 0 && (
           <h2 className="text-center text-gray-500 mt-4">
-            No movies found matching "{search}".
+            No movies found matching &quot;{search}&quot;.
           </h2>
         )}
 
@@ -102,7 +102,7 @@ function HomePage({ initialMovies }: { initialMovies: MovieResponse[] }) {
 
         {!hasMore && movies.length > 0 && (
           <h2 className="text-center text-gray-500 mt-4">
-            You've reached the end of the list.
+            You&quot;ve reached the end of the list.
           </h2>
         )}
       </div>

@@ -3,6 +3,7 @@
 import { useEffect, useState } from 'react';
 import api from '@/app/api/apiClient';
 import { MovieDetailModel } from '@/app/components/models/MovieModel';
+import Image from 'next/image';
 
 // Update Props type to reflect that params is a Promise
 export type Props = {
@@ -47,28 +48,45 @@ function MovieDetail({ params }: Props) {
     }
   }, [id]); // Trigger when id is set
 
-  if (isLoading) {
-    return <div>Loading...</div>;
-  }
-
-  if (!movie) {
-    return <div>Movie not found</div>;
-  }
 
   return (
-    <div className="container mx-auto">
-      <h1 className="text-4xl font-bold">{movie.title}</h1>
-      <img
-        src={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`}
-        alt={movie.title}
-      />
-      <p>{movie.overview}</p>
-      <ul>
-        {movie.genres?.map((genre: { id: number; name: string }) => (
-          <li key={genre.id}>{genre.name}</li>
-        ))}
-      </ul>
+  <div>
+  {isLoading && !movie ? (
+      <div className="flex justify-center h-screen items-center mt-5">
+      <div className="w-10 h-10 border-4 border-red-500 border-t-transparent border-solid rounded-full animate-spin"></div>
     </div>
+  ) : (
+  movie && (
+    <div className="px-10 py-20 mx-auto">
+    <h1 className="text-2xl md:text-4xl mb-10 font-bold">{movie?.title}</h1>
+   <div className="flex flex-col md:flex-row justify-between gap-10">
+   <div className="w-full">
+   <Image
+      src={`https://image.tmdb.org/t/p/w500/${movie?.poster_path}`}
+      alt='movie image'
+      width={100}
+      height={100}
+      className='object-cover w-full h-[300px] md:h-[500px] rounded-lg'
+    />
+   </div>
+  <div className="w-full">
+  <p className='text-base mb-4'>{movie?.overview}</p>
+    <ul className='flex items-center gap-2'>
+    Genre -
+      {movie?.genres?.map((genre,index) => (
+       <li className="text-white/70" key={genre.id}>
+      {genre.name}
+       {index < movie.genres.length - 1 && <span>,</span>}
+     </li>
+      ))}
+    </ul>
+  </div>
+   </div>
+  </div>
+  )
+  )}
+
+  </div>
   );
 }
 
